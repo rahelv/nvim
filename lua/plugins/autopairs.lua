@@ -3,6 +3,5 @@ return {
     'windwp/nvim-autopairs',
     event = "InsertEnter", --plugin only gets loaded when entering insert-mode
     config = true
-    -- use opts = {} for passing setup options
-    -- this is equalent to setup({}) function
+    --TODO: add <> to pairs 
 }
