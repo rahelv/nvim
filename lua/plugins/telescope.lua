@@ -1,3 +1,4 @@
+-- fuzzy finder (files, lsp, etc)
 return {
     'nvim-telescope/telescope.nvim', 
     dependencies = {

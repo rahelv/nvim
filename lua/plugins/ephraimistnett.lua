@@ -1,3 +1,4 @@
+-- file for all my colorschemes 
 return {
     "folke/tokyonight.nvim",
     lazy = false,  --dont lazy load
