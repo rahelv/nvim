@@ -8,7 +8,10 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    spec = "plugins",
+    spec = {
+        { import = "plugins" }, 
+        { import = "plugins.lsp"},
+    },
     change_detection = { -- automatically check for config file changes and reload the ui 
         enabled = true, 
         notify = false, -- disable notifications
