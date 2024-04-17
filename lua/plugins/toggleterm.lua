@@ -5,6 +5,7 @@ return {
         { "<C-x>", "<cmd>ToggleTerm<cr>", desc = "Toggle the terminal" },
         { "<leader>g", "<cmd>lua _lazygit_toggle()<cr>", desc = "Open lazygit" },
     },
+    cmd = {"TermExec"},
 
     config = function()
         local Terminal = require("toggleterm.terminal").Terminal
