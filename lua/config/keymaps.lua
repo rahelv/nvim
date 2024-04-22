@@ -25,6 +25,9 @@ vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+-- Copy whole file
+vim.keymap.set('n', '<C-a>', 'ggVGy', { desc = 'Copy all'})
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -46,7 +49,7 @@ vim.keymap.set("n", "<leader>r", function()
     vim.cmd("wa")
     vim.cmd("make")
     local file = vim.fn.system("ls *.o | head -n 1") --takes the first file ending in .o
-    --TODO: Error Handling 
-    vim.cmd("TermExec cmd='sudo ./" .. string.gsub(file,"%s*$", "") .. "\'") --string.gsub to remove trailing whitespaces TODO: find better solution ? 
+    --TODO: Error Handling
+    vim.cmd("TermExec cmd='sudo ./" .. string.gsub(file,"%s*$", "") .. "\'") --string.gsub to remove trailing whitespaces TODO: find better solution ?
     -- vim.cmd(":startinsert")
 end, { desc = "Make and Run"})
