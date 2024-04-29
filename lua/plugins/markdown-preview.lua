@@ -4,6 +4,6 @@ return {
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
     keys = {
-        { 'o', '<cmd>MarkdownPreviewToggle<CR>', desc = 'Preview Markdown' },
+        { '<leader>o', '<cmd>MarkdownPreviewToggle<CR>', desc = 'Preview Markdown' },
     },
 }
