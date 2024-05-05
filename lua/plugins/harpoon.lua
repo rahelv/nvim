@@ -17,14 +17,14 @@ return {
             desc = 'Show the harpoon file list',
         },
         {
-            '<Tab>',
+            '<leader><Tab>',
             function()
                 require('harpoon.ui').nav_next()
             end,
             desc = 'Jump to the next harpoon file',
         },
         {
-            '<S-Tab>',
+            '<leader><S-Tab>',
             function()
                 require('harpoon.ui').nav_prev()
             end,
