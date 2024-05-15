@@ -20,7 +20,7 @@ end
 local function getRandomAsciiArt()
     math.randomseed(os.time())
     -- 1-5, number has to be nr of pictures in ascii folder
-    local ascii_art = require('themes.ascii.art_' .. math.random(5))
+    local ascii_art = require('themes.ascii.art_' .. math.random(10))
     return explode('\n', ascii_art)
 end
 
