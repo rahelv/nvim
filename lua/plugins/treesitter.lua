@@ -3,7 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-        ensure_installed = { 'vim', 'c', 'cpp', 'lua', 'python' },
+        ensure_installed = { 'vim', 'c', 'cpp', 'lua', 'python', 'latex' },
         auto_install = true,
         highlight = {
             enable = true,
