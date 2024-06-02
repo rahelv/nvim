@@ -7,13 +7,14 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
+require('lazy').setup ({
     spec = {
-        { import = "plugins" }, 
-        { import = "plugins.lsp"},
+        { import = 'plugins' },
+        { import = 'plugins.lsp' },
+        { import = 'plugins.dap' },
     },
-    change_detection = { -- automatically check for config file changes and reload the ui 
-        enabled = true, 
+    change_detection = { -- automatically check for config file changes and reload the ui
+        enabled = true,
         notify = false, -- disable notifications
-    }
+    },
 })

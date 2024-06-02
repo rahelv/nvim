@@ -29,6 +29,59 @@ local fmta = require('luasnip.extras.fmt').fmta
 -- local ms = ls.multi_snippet
 -- local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 
+-- local function env(name)
+--     local x, y = unpack(vim.api.nvim_eval("vimtex#env#is_inside('" .. name .. "')"))
+--     return x ~= 0 and y ~= 0
+-- end
+
+-- local function add_item()
+--     local current_line = vim.api.nvim_get_current_line()
+--
+--     if current_line:match '^%s*$' == nil then --if line is not empty (not only contains whitespace chars)
+--         return '- '
+--     end
+--
+--     if env 'itemize' or env 'enumerate' then
+--         return true
+--     else
+--         return false
+--     end
+-- end
+--
+-- local function add_item_in_description()
+--     local current_line = vim.api.nvim_get_current_line()
+--
+--     if current_line:match '^%s*$' == nil then --if line is not empty (not only contains whitespace chars)
+--         return '- '
+--     end
+--
+--     if env 'description' then
+--         return true
+--     else
+--         return false
+--     end
+-- end
+
+-- local function add_item()
+--     print 'checking item'
+--     if is_cursor_in_environment 'itemize' or is_cursor_in_environment 'enumerate' then
+--         print 'in env'
+--         return '\\item '
+--     elseif is_cursor_in_environment 'description' then
+--         print 'in desc'
+--         return fmta(
+--             [[
+--              \item[<>]
+--             ]],
+--             {
+--                 i(1),
+--             }
+--         )
+--     else
+--         return '- '
+--     end
+-- end
+
 return {
     s({ trig = '§', snippetType = 'autosnippet' }, {
         t '\\',
@@ -37,8 +90,13 @@ return {
     s({ trig = '°', snippetType = 'autosnippet' }, {
         t '#',
     }),
+
+    s({ trig = '-->', snippetType = 'autosnippet' }, {
+        t '$\\rightarrow$',
+    }),
+
     s(
-        { trig = 'tbt', snippetType = 'autosnippet' },
+        { trig = 'tbf', snippetType = 'autosnippet' },
         fmta(
             [[
              \textbf{<>}
@@ -48,4 +106,32 @@ return {
             }
         )
     ),
+
+    s(
+        { trig = 'tit ', snippetType = 'autosnippet' },
+        fmta(
+            [[
+             \textit{<>}
+            ]],
+            {
+                i(1),
+            }
+        )
+    ),
+
+    -- s({ trig = '- ', snippetType = 'autosnippet', condition = add_item }, {
+    --     t '\\item ',
+    -- }),
+    --
+    -- s(
+    --     { trig = 'tbf', snippetType = 'autosnippet', condition = add_item_in_description },
+    --     fmta(
+    --         [[
+    --          \item[<>]
+    --         ]],
+    --         {
+    --             i(1),
+    --         }
+    --     )
+    -- ),
 }

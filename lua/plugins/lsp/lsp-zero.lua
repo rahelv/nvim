@@ -4,6 +4,7 @@ return {
         branch = 'v3.x',
         dependencies = {
             'neovim/nvim-lspconfig',
+            'folke/neodev.nvim',
             'hrsh7th/cmp-nvim-lsp',
         },
         config = function()
